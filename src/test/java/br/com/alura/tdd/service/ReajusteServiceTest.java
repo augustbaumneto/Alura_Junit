@@ -21,6 +21,9 @@ import br.com.alura.tdd.modelo.Funcionario;
  */
 class ReajusteServiceTest {
 
+	/**
+	 * Teste para validar o calculo do reajuste para funcionarios à desejar
+	 */
 	@Test
 	void validaSeDesempenhoADesejarReajusteE3PorCento() {
 
@@ -28,6 +31,30 @@ class ReajusteServiceTest {
 		Funcionario func = new Funcionario("Zeca", LocalDate.now(), new BigDecimal("1000"));
 		reajusteservice.concederReajuste(func, Desempenho.A_DESEJAR);
 		assertEquals(new BigDecimal("1030.00"),func.getSalario());
+	}
+	
+	/**
+	 * Teste para validar o calculo do reajuste para funcionarios bom
+	 */
+	@Test
+	void validaSeDesempenhoBomReajusteE15PorCento() {
+
+		ReajusteService reajusteservice = new ReajusteService();
+		Funcionario func = new Funcionario("Liu", LocalDate.now(), new BigDecimal("1000"));
+		reajusteservice.concederReajuste(func, Desempenho.BOM);
+		assertEquals(new BigDecimal("1150.00"),func.getSalario());
+	}
+	
+	/**
+	 * Teste para validar o calculo do reajuste para funcionarios ótimo
+	 */
+	@Test
+	void validaSeDesempenhoOtimoReajusteE20PorCento() {
+
+		ReajusteService reajusteservice = new ReajusteService();
+		Funcionario func = new Funcionario("Tania", LocalDate.now(), new BigDecimal("1000"));
+		reajusteservice.concederReajuste(func, Desempenho.OTIMO);
+		assertEquals(new BigDecimal("1200.00"),func.getSalario());
 	}
 
 }
