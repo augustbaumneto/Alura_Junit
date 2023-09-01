@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.alura.tdd;
+package br.com.alura.tdd.modelo;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ public class CalculadoraTest {
 		
 		int soma = calc.somar(3, 7);
 		
-		Assert.assertEquals(12, soma);
+		Assert.assertEquals(10, soma);
 	}
 	
 }
