@@ -56,5 +56,17 @@ class ReajusteServiceTest {
 		reajusteservice.concederReajuste(func, Desempenho.OTIMO);
 		assertEquals(new BigDecimal("1200.00"),func.getSalario());
 	}
+	
+	/**
+	 * Teste para validar o calculo do reajuste para funcionarios sem classificação
+	 */
+	@Test
+	void validaSeDesempenhoNaoExistenteNaoSerReajustado() {
+
+		ReajusteService reajusteservice = new ReajusteService();
+		Funcionario func = new Funcionario("Veraldo", LocalDate.now(), new BigDecimal("1000"));
+		reajusteservice.concederReajuste(func, null);
+		assertEquals(new BigDecimal("1000.00"),func.getSalario());
+	}
 
 }
