@@ -26,23 +26,9 @@ public class ReajusteService {
 		BigDecimal reajuste;
 		
 		if(!(desempenho==null)) {
-		
-			switch (desempenho) {
-		
-				case A_DESEJAR:
-					reajuste = funcionario.getSalario().multiply(new BigDecimal("0.03"));
-					funcionario.reajustarSalario(reajuste);
-					break;
-				case BOM:
-					reajuste = funcionario.getSalario().multiply(new BigDecimal("0.15"));
-					funcionario.reajustarSalario(reajuste);
-					break;
-				case OTIMO:
-					reajuste = funcionario.getSalario().multiply(new BigDecimal("0.20"));
-					funcionario.reajustarSalario(reajuste);
-					break;
-			}			
-		}
+				reajuste = funcionario.getSalario().multiply(desempenho.percentualReajuste());
+				funcionario.reajustarSalario(reajuste);	
+		}			
 		
 	}
 
