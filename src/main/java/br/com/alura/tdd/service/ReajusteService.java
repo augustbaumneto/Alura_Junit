@@ -33,7 +33,6 @@ public class ReajusteService {
 					reajuste = funcionario.getSalario().multiply(new BigDecimal("0.03"));
 					funcionario.reajustarSalario(reajuste);
 					break;
-				
 				case BOM:
 					reajuste = funcionario.getSalario().multiply(new BigDecimal("0.15"));
 					funcionario.reajustarSalario(reajuste);
