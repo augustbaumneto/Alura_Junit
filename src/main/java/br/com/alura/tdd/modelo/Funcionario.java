@@ -20,7 +20,8 @@ public class Funcionario {
 	public Funcionario(String nome, LocalDate dataAdmissao, BigDecimal salario) {
 		this.nome = nome;
 		this.dataAdmissao = dataAdmissao;
-		this.salario = salario.setScale(2,RoundingMode.HALF_UP);
+		this.salario = salario;
+		arredondarSalario();
 	}
 
 	public String getNome() {
@@ -40,8 +41,16 @@ public class Funcionario {
 	 * @param reajuste
 	 */
 	public void reajustarSalario(BigDecimal reajuste) {
-		this.salario = this.salario.add(reajuste).setScale(2,RoundingMode.HALF_UP);
-		
+		this.salario = this.salario.add(reajuste);
+		arredondarSalario();
 	}
+	
+	/**
+	 * Método que arredonda o salario
+	 * 
+	 */
 
+	private void arredondarSalario() {
+		this.salario=this.salario.setScale(2,RoundingMode.HALF_UP);
+	}
 }

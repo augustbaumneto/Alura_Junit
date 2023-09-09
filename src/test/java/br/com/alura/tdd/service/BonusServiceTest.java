@@ -50,4 +50,5 @@ class BonusServiceTest {
 		BigDecimal bonus = bonusservice.calcularBonus(new Funcionario("Marcia", LocalDate.now(), new BigDecimal("10000")) );
 		assertEquals(new BigDecimal("1000.00"),bonus);
 	}
+	
 }
